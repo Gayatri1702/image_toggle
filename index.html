@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Toggle</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            transition: transform 0.2s ease;
+        }
+        img:hover {
+            transform: scale(1.1);
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <img id="toggleImage" src="https://i.pinimg.com/originals/3f/62/43/3f6243c470f53d2620323b903f4ea9cb.png" alt="Toggle Image">
+    <div>
+        <button id="singleClickButton">Click Once</button>
+        <button id="doubleClickButton">Click Twice</button>
+    </div>
+
+    <script>
+        const imageElement = document.getElementById('toggleImage');
+        const singleClickButton = document.getElementById('singleClickButton');
+        const doubleClickButton = document.getElementById('doubleClickButton');
+
+        let hoverImage = "https://www.australianplantsonline.com.au/media/catalog/product/n/i/nigella-closeup-500_1_1.jpg?optimize=medium&fit=bounds&height=720&width=720";
+        let clickImage = "https://growhappierplants.com/wp-content/uploads/2023/01/lily-of-the-valley-flowers.jpeg.webp";
+        let doubleClickImage = "https://www.thespruce.com/thmb/Lm4b1QS7LEJKE93KQC9VB3pQ0Mo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/growing-common-poppy-papaver-rhoeas-5113751-hero-3246835ea3184e4bb2c51bd0d331ed42.jpg";
+        // let defaultImage = "https://i.pinimg.com/originals/3f/62/43/3f6243c470f53d2620323b903f4ea9cb.png";
+
+        // Single click handler
+        singleClickButton.addEventListener('click', () => {
+            imageElement.src = clickImage;
+        });
+
+        // Double click handler
+        doubleClickButton.addEventListener('dblclick', () => {
+            imageElement.src = doubleClickImage;
+        });
+
+        // Hover handler
+        imageElement.addEventListener('mouseover', () => {
+            imageElement.src = hoverImage;
+        });
+
+        imageElement.addEventListener('mouseout', () => {
+            imageElement.src = defaultImage;
+        });
+    </script>
+</body>
+</html>
